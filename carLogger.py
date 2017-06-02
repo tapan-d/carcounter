@@ -70,7 +70,7 @@ try:
 # Open files for writing
             datenow = datetime.datetime.now()
             fileDate = datenow.strftime("%m%d%y_%H%M%S")
-            fout= open(outFile+fileDate+".log",'w')
+#            fout= open(outFile+fileDate+".log",'w')
 
             if isDebug:
                 fdebugout = open(debugFile+fileDate+".log",'w')
@@ -88,18 +88,22 @@ try:
             if "COUNT" in aline:
                 datenow = datetime.datetime.now()
                 print(str(datenow)+" "+aline)
-                fout.write(str(datenow)+" "+aline+"\n")
+#                fout.write(str(datenow)+" "+aline+"\n")
                 if isDebug:
                     fdebugout.write(str(datenow)+" "+aline+"\n")
             else:
                 if len(aline)>4 :
                     if isDebug:
-                        print(aline);
-                        fdebugout.write(aline+"\n")
+                        print(aline)
+                        if "IGNORING" in aline:
+                            continue
+                        else:
+                            fdebugout.write(aline+"\n")
+
         elif switchValue == 1 and isCounting == True:
 # physical counting switch has been turned off
             isCounting = False
-            fout.close()
+#            fout.close()
             if isDebug:
                 fdebugout.close()
 
@@ -117,7 +121,7 @@ except:
 finally:
 # close everything
     if isCounting == True:
-        fout.close()
+#        fout.close()
         if isDebug:
             fdebugout.close()
 
