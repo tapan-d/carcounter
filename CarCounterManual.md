@@ -1,9 +1,12 @@
 #Car Counter Instructions
 
-Last revision May 17, 2017
+Last revision June 1, 2017
+
+0. Write down which car counter (A,B,C,D) will be at which location, such as East Washington bridge entrance.
+Then for each of the car counters to be used, do the following steps:
 
 1. First plug in PI+Arduino counter to power brick.
-Wait about 2 minutes until the PI finished booting
+Wait about 2 minutes until the PI finishes booting
 
 2. Connect your laptop to the serial console cable.   
 Use your favorite terminal emulation program at 115200 baud.  
@@ -38,7 +41,8 @@ Move the car counter back to the IT room still powered on.
 
 9. Transfer the files from the car counter to a laptop using either terminal
 emulation program file logging and "cat", or connect to a router and FileZilla. Or any
-other way you dream up.
+other way you dream up. Note: the serial terminal has trouble with the 115200 baud rate
+and sometimes drops characters so the file must be edited.
 
 10. Power off the raspberry pi with:  
 sudo poweroff
