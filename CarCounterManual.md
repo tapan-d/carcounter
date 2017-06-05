@@ -2,7 +2,7 @@
 
 Last revision June 1, 2017
 
-0. Write down which car counter (A,B,C,D) will be at which location, such as East Washington bridge entrance.
+0. Write down which car counter (A,B,C,D) will be at which location, such as East Washington bridge entrance. Make sure all the power bricks are charged. If using a Macintosh or Windows laptop to check the counters in the field, be sure to install the Prolific or Silabs CP210X chipset drivers (both drivers if unsure). Be sure to test each counter the day before the event to make sure it still works.
 Then for each of the car counters to be used, do the following steps:
 
 1. First plug in PI+Arduino counter to power brick.
@@ -13,7 +13,7 @@ Use your favorite terminal emulation program at 115200 baud.
 Log in as user: "pi" with the right password.
 
 3. You need to set the date time  Example:  
-sudo date -s "date -s "03 MAY 2017 08:14:00"
+sudo date -s "Sat Jun 03 017 08:14:00"
 
 4. cd into carLogs directory.  
 Make sure the toggle switch on the car counter is off
@@ -24,7 +24,7 @@ It doesn't start counting until the toggle switch is on.
 Unplug the serial console cable.
 
 6. Take the car counter out to an entrance and set up.  
-Level the tripod and then bungee one leg to a garden stake or post
+Level the tripod and then bungee or velcro tie one leg to a garden stake or post. The tripod can be left out overnight.
 
 7. Toggle the switch to on (Be sure to do this or all your effort is wasted.)
 
@@ -39,15 +39,14 @@ This starts a new log file with new date time in the file name.
 Terminate the python carLogger program with Control-C
 Move the car counter back to the IT room still powered on.
 
-9. Transfer the files from the car counter to a laptop using either terminal
-emulation program file logging and "cat", or connect to a router and FileZilla. Or any
-other way you dream up. Note: the serial terminal has trouble with the 115200 baud rate
-and sometimes drops characters so the file must be edited.
+9. Transfer the files from the car counter to a laptop or desktop. It is fastest to plug the raspberry pi into a router
+with an ethernet cable, then use the serial terminal to find the IP address assigned to the pi. Then use software like
+FileZilla or scp to transfer the files. Once the files are transfered to the laptop delete them from the raspberry pi with "sudo rm *.log"
 
 10. Power off the raspberry pi with:  
 sudo poweroff
 
-11. After a minute, unplug the car counter from the power brick. 
+11. After a minute when the green light on the pi stops blinking, unplug the car counter from the power brick. 
 Be sure to recharge the power brick for the next day.
 
 ##Troubleshooting
